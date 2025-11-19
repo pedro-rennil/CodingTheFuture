@@ -1,0 +1,33 @@
+<table class="w-full">
+  <thead>...</thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>
+        <input 
+          *ngIf="isEditingId === task.id" 
+          [(ngModel)]="editedTask.title" 
+          name="title" 
+        >
+        <span *ngIf="isEditingId !== task.id">{{ task.title }}</span>
+      </td>
+      
+      <td>
+        <div *ngIf="isEditingId === task.id">
+          <button (click)="saveEdit()">Salvar</button>
+          <button (click)="cancelEdit()">Cancelar</button>
+        </div>
+        <div *ngIf="isEditingId !== task.id">
+          <button (click)="startEdit(task)">Editar</button>
+          <button (click)="confirmDelete(task.id)">Excluir</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="deleteConfirmId" class="alert-dialog-overlay">
+    <h2>Confirmar exclusão</h2>
+    <p>Tem certeza que deseja excluir?</p>
+    <button (click)="deleteConfirmId = null">Cancelar</button>
+    <button (click)="handleDelete()">Excluir Tarefa</button>
+</div>
