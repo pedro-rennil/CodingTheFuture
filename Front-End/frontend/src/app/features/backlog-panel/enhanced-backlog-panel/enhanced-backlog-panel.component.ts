@@ -1,10 +1,14 @@
-// src/app/features/backlog-panel/enhanced-backlog-panel/enhanced-backlog-panel.component.ts
-
+import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+
 import { Task } from '../../../models/task.model'; // Seu modelo de tarefa
 
 @Component({
   selector: 'app-enhanced-backlog-panel',
+  standalone: true,
+  imports: [
+    CommonModule
+  ],
   // O template renderizará os sub-componentes (BacklogTable, EditableBacklogTable, Tabs, Filtros)
   template: `
     <div class="panel-container">

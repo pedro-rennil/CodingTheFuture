@@ -5,6 +5,8 @@ import { Annotation } from '../../../models/viewer.model';
 
 @Component({
   selector: 'app-document-viewer',
+    standalone: true,
+  templateUrl: './document-viewer.component.html',
   // O template usará *ngIf para o modal e manipuladores de evento para zoom/seleção
   // ... (Template)
 })

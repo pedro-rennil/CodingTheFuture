@@ -1,8 +1,15 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Task } from '../../../models/task.model';
+import { CommonModule } from '@angular/common'; // NOVO IMPORT
+import { FormsModule } from '@angular/forms';
+
+import { Task } from '../../../core/models/task.model';
 
 @Component({
   selector: 'app-editable-backlog-table',
+  imports: [
+      FormsModule,
+      CommonModule
+    ],
   templateUrl: './editable-backlog-table.component.html',
   styleUrls: ['./editable-backlog-table.component.css']
 })

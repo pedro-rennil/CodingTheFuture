@@ -4,6 +4,7 @@ import { HistoryItem } from '../../../models/history.model';
 
 @Component({
   selector: 'app-history-table',
+    standalone: true,
   templateUrl: './history-table.component.html',
   styleUrls: ['./history-table.component.css']
 })

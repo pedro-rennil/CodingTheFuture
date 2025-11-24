@@ -1,0 +1,55 @@
+<aside class="fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 border-r bg-white shadow-sm">
+  <div class="flex flex-col p-4">
+    <!-- Logo & Version -->
+    <div class="mb-6 px-3">
+      <app-logo [showText]="true" [size]="'md'"></app-logo>
+      <p class="mt-1 text-xs text-gray-500">v1.0</p>
+    </div>
+
+    <!-- Menu Items -->
+    <nav class="space-y-1">
+      <button
+        *ngFor="let item of menuItems"
+        (click)="navigate(item.route)"
+        [class.bg-gradient-to-r]="isActive(item.route)"
+        [class.from-[#2B6CB0]]="isActive(item.route)"
+        [class.to-[#6B46C1]]="isActive(item.route)"
+        [class.text-white]="isActive(item.route)"
+        [class.shadow-md]="isActive(item.route)"
+        [class.text-gray-700]="!isActive(item.route)"
+        [class.hover:bg-gray-100]="!isActive(item.route)"
+        class="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm transition-colors"
+      >
+        <!-- Icons (usar lucide-angular ou font-awesome) -->
+        <ng-container [ngSwitch]="item.icon">
+          <svg *ngSwitchCase="'upload'" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+          
+          <svg *ngSwitchCase="'list'" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="8" y1="6" x2="21" y2="6"/>
+            <line x1="8" y1="12" x2="21" y2="12"/>
+            <line x1="8" y1="18" x2="21" y2="18"/>
+            <line x1="3" y1="6" x2="3.01" y2="6"/>
+            <line x1="3" y1="12" x2="3.01" y2="12"/>
+            <line x1="3" y1="18" x2="3.01" y2="18"/>
+          </svg>
+          
+          <svg *ngSwitchCase="'user'" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          
+          <svg *ngSwitchCase="'settings'" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v6m0 6v6m8.66-9l-5.2 3m-6.92 4l-5.2 3M3.34 8l5.2 3m6.92 4l5.2 3"/>
+          </svg>
+        </ng-container>
+
+        <span>{{ item.label }}</span>
+      </button>
+    </nav>
+  </div>
+</aside>

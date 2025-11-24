@@ -1,39 +1,8 @@
-<app-toaster></app-toaster>
+<app-header *ngIf="isLoggedIn$ | async" />
 
-<app-login *ngIf="!isLoggedIn" (onLogin)="handleLogin($event)"></app-login>
-
-<app-document-upload 
-    *ngSwitchCase="'upload'"
-    [isAnalyzing]="isAnalyzing"
-    [progress]="analysisProgress"
-    [isComplete]="isAnalysisComplete"
-    [viewingDocumentName]="viewingDocument?.name || null"
-    (fileUpload)="handleAnalyze($event)">
-</app-document-upload>
-
-<div class="main-container" *ngIf="isLoggedIn">
-  <app-header [userName]="userName" (logout)="handleLogout()"></app-header>
-  
-  <app-sidebar (viewChange)="activeView = $event"></app-sidebar>
-  
-  <main>
-    <div [ngSwitch]="activeView">
-        <app-document-upload 
-             *ngSwitchCase="'upload'"
-             [isAnalyzing]="isAnalyzing"
-             (fileUpload)="handleAnalyze($event)">
-        </app-document-upload>
-        
-        <app-backlog-panel 
-             *ngSwitchCase="'backlog'" 
-             [tasks]="tasks" 
-             (updateTask)="handleUpdateTask($event)"
-             (deleteTask)="handleDeleteTask($event)">
-        </app-backlog-panel>
-        
-        <app-settings-view *ngSwitchCase="'settings'"></app-settings-view>
-        <app-user-profile *ngSwitchCase="'profile'"></app-user-profile>
-    </div>
-
-  </main>
-</div>
+<main class="min-h-screen bg-gray-50 pt-4 pb-12"
+      [ngClass]="{'mt-16': isLoggedIn$ | async}"> 
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <router-outlet></router-outlet>
+  </div>
+</main>

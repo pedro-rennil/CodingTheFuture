@@ -1,0 +1,16 @@
+// src/app/app.component.scss
+
+// Garante que o container raiz ocupe 100% da altura da viewport.
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+// Estilos para o Main (onde a navegação e o conteúdo são exibidos)
+main {
+    // Garante que o corpo da página se expanda para ocupar o espaço restante
+    flex-grow: 1;
+    // O padding-top (pt-4) e margem (mt-16) serão controlados pelo Tailwind 
+    // no app.component.html para lidar com o Header.
+}

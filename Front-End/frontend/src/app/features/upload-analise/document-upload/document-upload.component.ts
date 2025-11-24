@@ -1,8 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../../models/task.model'; // Importando seu modelo
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-document-upload',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './document-upload.component.html',
   styleUrls: ['./document-upload.component.css']
 })

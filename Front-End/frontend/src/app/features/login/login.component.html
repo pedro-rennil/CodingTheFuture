@@ -1,0 +1,57 @@
+<div class="flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50 px-4">
+  <div class="w-full max-w-md rounded-lg border bg-white p-8 shadow-xl">
+    <!-- Logo -->
+    <div class="mb-8 text-center">
+      <div class="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-lg">
+        <app-logo [size]="'lg'"></app-logo>
+      </div>
+      <h1 class="mb-1 text-2xl font-medium text-gray-900">StefAI Plan</h1>
+      <p class="text-sm text-gray-500">
+        Planejamento Inteligente de Tarefas com IA
+      </p>
+    </div>
+
+    <!-- Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-5">
+      <div>
+        <label for="email" class="block text-base font-medium text-gray-700">Email</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="seu-email@exemplo.com"
+          class="mt-1.5 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-[#2B6CB0] focus:outline-none focus:ring-1 focus:ring-[#2B6CB0]"
+        />
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" 
+             class="mt-1 text-xs text-red-600">
+          Email inválido
+        </div>
+      </div>
+
+      <div>
+        <label for="password" class="block text-base font-medium text-gray-700">Senha</label>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="••••••••"
+          class="mt-1.5 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-[#2B6CB0] focus:outline-none focus:ring-1 focus:ring-[#2B6CB0]"
+        />
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="loginForm.invalid"
+        class="w-full rounded-md bg-gradient-to-r from-[#2B6CB0] to-[#6B46C1] px-4 py-2 text-base font-medium text-white hover:opacity-90 disabled:opacity-50"
+      >
+        Entrar
+      </button>
+    </form>
+
+    <div class="mt-6 text-center">
+      <a href="#" class="text-sm text-[#2B6CB0] hover:underline" (click)="$event.preventDefault()">
+        Criar conta
+      </a>
+    </div>
+  </div>
+</div>

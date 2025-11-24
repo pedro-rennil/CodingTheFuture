@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+/*import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; // 👈 Essencial para [(ngModel)] nos formulários (JiraConfig, Editáveis)
 import { HttpClientModule } from '@angular/common/http'; // 👈 Essencial para o AiService
@@ -17,7 +17,7 @@ import { DocumentViewerComponent } from './shared/components/document-viewer/doc
 // Componentes Faltantes (Para Compilação Inicial, crie arquivos vazios)
 import { LoginComponent } from './features/login/login.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
-import { SettingsViewComponent } from './features/settings/settings-view.component';
+import { SettingsViewComponent } from './features/settings/jira-config/settings-view.component';
 import { UserProfileComponent } from './features/profile/user-profile.component';
 // Adicione qualquer outro componente que você venha a criar (Ex: BacklogTableComponent)
 
@@ -40,11 +40,11 @@ import { UserProfileComponent } from './features/profile/user-profile.component'
   ],
   imports: [ // 👈 Array OBRIGATÓRIO para módulos Angular
     BrowserModule,
-    FormsModule, 
+    FormsModule,
     HttpClientModule,
     // AppRoutingModule deve ser configurado aqui para roteamento
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { }*/ 

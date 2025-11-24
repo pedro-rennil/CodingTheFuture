@@ -1,5 +1,4 @@
-// src/app/shared/components/header/header.component.ts
-
+import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

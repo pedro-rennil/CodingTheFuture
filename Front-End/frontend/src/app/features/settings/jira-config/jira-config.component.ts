@@ -1,10 +1,12 @@
 // src/app/features/settings/jira-config/jira-config.component.ts
-
+import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { JiraConfig } from '../../../models/jira.model';
 
 @Component({
   selector: 'app-jira-config',
+  standalone: true,
+  imports: [CommonModule],
   template: `
     <form>
         <input type="text" [(ngModel)]="config.url" name="url" placeholder="Jira URL">
