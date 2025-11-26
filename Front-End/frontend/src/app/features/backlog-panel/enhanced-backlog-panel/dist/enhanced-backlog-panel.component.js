@@ -9,6 +9,7 @@ exports.__esModule = true;
 exports.EnhancedBacklogPanelComponent = void 0;
 var common_1 = require("@angular/common");
 var core_1 = require("@angular/core");
+var editable_backlog_table_component_1 = require("../editable-backlog-table/editable-backlog-table.component");
 var EnhancedBacklogPanelComponent = /** @class */ (function () {
     function EnhancedBacklogPanelComponent() {
         // ENTRADAS (Props do App.tsx)
@@ -60,7 +61,7 @@ var EnhancedBacklogPanelComponent = /** @class */ (function () {
             selector: 'app-enhanced-backlog-panel',
             standalone: true,
             imports: [
-                common_1.CommonModule
+                common_1.CommonModule, editable_backlog_table_component_1.EditableBacklogTableComponent
             ],
             // O template renderizará os sub-componentes (BacklogTable, EditableBacklogTable, Tabs, Filtros)
             template: "\n    <div class=\"panel-container\">\n      <div class=\"tabs-e-filtros\">\n        <button (click)=\"activeTab = 'backlog'\">Backlog</button>\n        <button (click)=\"activeTab = 'created'\">Criadas</button>\n        </div>\n      \n      <app-editable-backlog-table\n        *ngIf=\"activeTab === 'backlog'\"\n        [tasks]=\"tasks\"\n        (onUpdateTask)=\"onUpdateTask.emit($event)\"\n        (onDeleteTask)=\"onDeleteTask.emit($event)\"\n        (onCreateInJira)=\"onCreateInJira.emit($event)\"\n      ></app-editable-backlog-table>\n      \n      <button \n        *ngIf=\"canUndo\" \n        (click)=\"onUndoAction.emit()\"\n      >\n        Desfazer A\u00E7\u00E3o\n      </button>\n      \n      </div>\n  "

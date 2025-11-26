@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/* app.component.scss */
+/* Defina estilos globais básicos para o componente raiz aqui */
+.app-layout {
+  display: flex;
+  /* Se você for usar uma barra lateral, este é um bom ponto de partida */
+  min-height: 100vh;
+}
+
+.router-view {
+  padding-top: 2rem;
+}

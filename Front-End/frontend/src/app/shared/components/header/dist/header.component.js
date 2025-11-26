@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.HeaderComponent = void 0;
+var common_1 = require("@angular/common");
 var core_1 = require("@angular/core");
 var HeaderComponent = /** @class */ (function () {
     function HeaderComponent() {
@@ -51,6 +52,7 @@ var HeaderComponent = /** @class */ (function () {
     HeaderComponent = __decorate([
         core_1.Component({
             selector: 'app-header',
+            imports: [common_1.CommonModule],
             template: "\n    <header>\n      <div class=\"flex h-full items-center justify-between px-4\">\n        <button (click)=\"onNavigateToProfile.emit()\">\n          <span>{{ userName }}</span>\n        </button>\n        \n        <button (click)=\"handleLogoutClick()\">\n          Sair\n        </button>\n      </div>\n    </header>\n\n    <div *ngIf=\"showLogoutDialog\" class=\"dialog-overlay\">\n        <h2>Confirmar Sa\u00EDda</h2>\n        <p>Tem certeza que deseja sair?</p>\n        <button (click)=\"showLogoutDialog = false\">Cancelar</button>\n        <button (click)=\"confirmLogout()\">Sim, Sair</button>\n    </div>\n  ",
             styleUrls: ['./header.component.css']
         })

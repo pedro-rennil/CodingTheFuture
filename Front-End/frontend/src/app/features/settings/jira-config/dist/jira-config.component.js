@@ -10,6 +10,7 @@ exports.JiraConfigComponent = void 0;
 // src/app/features/settings/jira-config/jira-config.component.ts
 var common_1 = require("@angular/common");
 var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
 var JiraConfigComponent = /** @class */ (function () {
     function JiraConfigComponent() {
         // ENTRADA
@@ -45,8 +46,8 @@ var JiraConfigComponent = /** @class */ (function () {
         core_1.Component({
             selector: 'app-jira-config',
             standalone: true,
-            imports: [common_1.CommonModule],
-            template: "\n    <form>\n        <input type=\"text\" [(ngModel)]=\"config.url\" name=\"url\" placeholder=\"Jira URL\">\n        <input type=\"email\" [(ngModel)]=\"config.email\" name=\"email\" placeholder=\"Email\">\n        <button \n            (click)=\"handleConnect()\" \n            [disabled]=\"!isFormValid\"\n        >\n          {{ isConnected ? \"Update Connection\" : \"Connect to Jira\" }}\n        </button>\n    </form>\n  "
+            imports: [common_1.CommonModule, forms_1.FormsModule],
+            template: "\n    <form>\n        <input type=\"text\" [(ngModel)]=\"config.url\" name=\"url\" placeholder=\"Jira URL\">\n        <input type=\"email\" [(ngModel)]=\"config.email\" name=\"email\" placeholder=\"Email\">\n        <button\n            (click)=\"handleConnect()\"\n            [disabled]=\"!isFormValid\"\n        >\n          {{ isConnected ? \"Update Connection\" : \"Connect to Jira\" }}\n        </button>\n    </form>\n  "
         })
     ], JiraConfigComponent);
     return JiraConfigComponent;

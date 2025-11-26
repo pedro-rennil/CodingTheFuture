@@ -7,9 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.SidebarComponent = void 0;
+var common_1 = require("@angular/common");
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var operators_1 = require("rxjs/operators");
+var logo_component_1 = require("../logo/logo.component");
 var SidebarComponent = /** @class */ (function () {
     function SidebarComponent(router) {
         this.router = router;
@@ -39,6 +41,7 @@ var SidebarComponent = /** @class */ (function () {
     SidebarComponent = __decorate([
         core_1.Component({
             selector: 'app-sidebar',
+            imports: [common_1.CommonModule, logo_component_1.LogoComponent, router_1.RouterLink],
             templateUrl: './sidebar.component.html',
             styleUrls: ['./sidebar.component.css']
         })

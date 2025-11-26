@@ -3,6 +3,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
+  imports: [CommonModule],
   template: `
     <header>
       <div class="flex h-full items-center justify-between px-4">

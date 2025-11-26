@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { Task } from '../../../models/task.model'; // Seu modelo de tarefa
+import { Task } from '../../../core/models/task.model'; // Seu modelo de tarefa
+import { EditableBacklogTableComponent } from '../editable-backlog-table/editable-backlog-table.component';
 
 @Component({
   selector: 'app-enhanced-backlog-panel',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule, EditableBacklogTableComponent
   ],
   // O template renderizará os sub-componentes (BacklogTable, EditableBacklogTable, Tabs, Filtros)
   template: `

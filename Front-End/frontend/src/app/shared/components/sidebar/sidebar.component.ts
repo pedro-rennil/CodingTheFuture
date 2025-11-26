@@ -1,6 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { LogoComponent } from '../logo/logo.component';
 
 interface MenuItem {
   id: string;
@@ -11,6 +13,7 @@ interface MenuItem {
 
 @Component({
   selector: 'app-sidebar',
+  imports: [CommonModule,LogoComponent, RouterLink],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
