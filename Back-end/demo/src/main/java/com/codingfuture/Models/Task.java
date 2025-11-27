@@ -4,19 +4,32 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
-@Entity // 👈 Nova anotação: marca como entidade JPA (tabela no DB)
+@Entity
+@Getter                 // Gera todos os métodos getXxx()
+@Setter                 // Gera todos os métodos setXxx()
+@NoArgsConstructor      // Gera o construtor padrão (Task())
+@AllArgsConstructor     // Gera o construtor com todos os campos
 public class Task {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // 👈 Geração automática do ID pelo DB
-    private Long id; // Usamos Long para IDs auto-incrementáveis em SQL
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String title;
     private String description;
-    private String type;
-    private String sourceDocument;
-
-    // Construtores, Getters e Setters (se estiver usando Lombok, anote com @Data)
-    // ...
+    private String type; // "Story", "Task", "Bug"
+    private String sourceDocument; // Nome do arquivo de onde foi extraído
+    
+    // Construtor manual mantido para a inicialização no AIClient (Embora @AllArgsConstructor já faça isso)
+    public Task(String title, String description, String type, String sourceDocument) {
+        this.title = title;
+        this.description = description;
+        this.type = type;
+        this.sourceDocument = sourceDocument;
+    }
 }
