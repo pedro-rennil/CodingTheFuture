@@ -4,15 +4,18 @@ Automação Inteligente de Backlog com Integração JIRA
 
 Uma aplicação Full Stack que lê arquivos PDF de escopo de projeto, utiliza Inteligência Artificial para extrair tarefas técnicas e cria automaticamente um backlog no JIRA.
 
-# 🚀 Demonstração Online
+---
+
+## 🚀 Demonstração Online
 
 O projeto está implantado e rodando em produção:
 
 - Frontend (Interface): Acesse na Vercel (Link de exemplo)
-
 - Backend (API): Hospedado no Render
 
-# 🛠️ Tecnologias e Ferramentas
+---
+
+## 🛠️ Tecnologias e Ferramentas
 
 A arquitetura foi desenhada priorizando escalabilidade, segurança e separação de responsabilidades.
 
@@ -31,32 +34,33 @@ A arquitetura foi desenhada priorizando escalabilidade, segurança e separação
 - PDF-Parse: Extração de texto de arquivos binários.
 - Render: Plataforma de hospedagem do Backend (Container).
 
-Integrações
+**Integrações**
 
-Google Gemini AI: Processamento de linguagem natural.
+- Google Gemini AI: Processamento de linguagem natural.
+- JIRA REST API: Criação e autenticação de tarefas.
 
-JIRA REST API: Criação e autenticação de tarefas.
+  ---
 
-📋 Pré-requisitos
+📋 Preparando o Ambiente (Pré-Requisitos)
 
 Para rodar este projeto localmente, você precisa ter instalado no seu computador:
 
-Node.js (Versão LTS)
+1. **Node.js (Versão LTS)**
 
-O motor que roda o JavaScript.
+* O motor que roda o JavaScript.
 
-📥 Baixar aqui
+* 📥 Baixar aqui
 
-Angular CLI
+2. **Angular CLI**
 
-Ferramenta de comando do Angular.
+* Ferramenta de comando do Angular.
 
-Após instalar o Node, abra o terminal e rode:
-
+* Após instalar o Node, abra o terminal e rode:
+```bash
 npm install -g @angular/cli
+```
 
-
-Git
+3. **Git**
 
 Para clonar o repositório.
 
