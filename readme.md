@@ -41,7 +41,7 @@ node server.js
 ### 2. Rodando o Frontend (Interface)
 No segundo terminal, entre na pasta da interface, instale as dependências e inicie:
 
-'''bash
+```bash
 cd frontend
 npm install
 ng serve
@@ -50,14 +50,14 @@ ng serve
 ✅ Aguarde a compilação. O terminal exibirá: "Listening on http://localhost:4200/"
 
 ### 🎮 Como Utilizar a Aplicação
-Abra seu navegador e acesse o endereço: http://localhost:4200
+1. Abra seu navegador e acesse o endereço: http://localhost:4200
 
-Na tela inicial, clique no botão "Escolher Arquivo PDF".
+2. Na tela inicial, preencha as credenciais do Jira.
 
-Selecione o arquivo PDF que contém o escopo do projeto.
+3. Selecione o arquivo PDF que contém o escopo do projeto.
 
-Clique no botão "GERAR BACKLOG NO JIRA".
+4. Clique no botão "GERAR BACKLOG NO JIRA".
 
-Aguarde a barra de carregamento finalizar.
+5. Aguarde a barra de carregamento finalizar.
 
-Acesse seu quadro no JIRA para visualizar as tarefas criadas automaticamente.
+6. Acesse seu quadro no JIRA para visualizar as tarefas criadas automaticamente.
