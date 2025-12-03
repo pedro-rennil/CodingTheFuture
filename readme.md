@@ -73,7 +73,7 @@ Siga os passos abaixo para configurar o ambiente de desenvolvimento.
 
 ### 1. Clonar o Repositório
 ```bash
-git clone [https://github.com/seu-usuario/staf-ai.git](https://github.com/seu-usuario/staf-ai.git)
+git clone https://github.com/pedro-rennil/CodingTheFuture.git
 cd staf-ai
 ```
 
