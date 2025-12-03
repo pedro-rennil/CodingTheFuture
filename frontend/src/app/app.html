@@ -1,0 +1,153 @@
+<mat-toolbar color="primary" class="main-toolbar">
+  
+  <div class="branding-container" (click)="backToHome()">
+    
+    <div class="logo-clickable">
+      <span class="logo-text">staf</span>
+      <span class="logo-ai">.ai</span>
+    </div>
+    
+    <div class="text-toolbar">
+      <p>Analise documentos com IA e gere um backlog no Jira.</p>
+    </div>
+
+  </div>
+
+  <span class="spacer"></span>
+  
+  <button mat-icon-button *ngIf="step !== 'config' && step !== 'success'" (click)="reset()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="container">
+
+  <div class="stepper-container">
+    <div class="step-item" [class.active]="step === 'config'">
+      <div class="circle">1</div>
+      <div class="label">Credenciais</div>
+    </div>
+    <div class="line"></div>
+    <div class="step-item" [class.active]="step === 'upload'">
+      <div class="circle">2</div>
+      <div class="label">Análise</div>
+    </div>
+    <div class="line"></div>
+    <div class="step-item" [class.active]="step === 'review' || step === 'success'">
+      <div class="circle">3</div>
+      <div class="label">Backlog</div>
+    </div>
+  </div>
+  
+  <mat-card class="upload-card">
+    <mat-card-header>
+      <mat-card-title>
+        <span *ngIf="step === 'config'">Credenciais do Jira</span>
+        <span *ngIf="step === 'upload'">Upload do Arquivo</span>
+        <span *ngIf="step === 'review'">Revisão das Tarefas</span>
+        <span *ngIf="step === 'success'">Sucesso!</span>
+      </mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      
+      <div *ngIf="step === 'config'" class="config-form">
+        
+        <div class="info-box">
+          <mat-icon>info</mat-icon>
+          <p>Para segurança, o Jira exige um <strong>Token</strong> em vez de senha.</p>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Link Completo do Quadro</mat-label>
+          <input matInput [(ngModel)]="jiraConfig.domain" 
+                 (ngModelChange)="onDomainChange($event)"
+                 placeholder="Cole o link aqui...">
+          </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Seu E-mail</mat-label>
+          <input matInput [(ngModel)]="jiraConfig.email" placeholder="exemplo@email.com">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Token de Acesso</mat-label>
+          <input matInput [(ngModel)]="jiraConfig.token" type="password">
+          <mat-hint align="start">
+            <a href="https://id.atlassian.com/manage-profile/security/api-tokens" target="_blank" class="token-link">
+              Gerar Token ↗
+            </a>
+          </mat-hint>
+        </mat-form-field>
+
+        <div class="save-option">
+          <mat-checkbox [(ngModel)]="rememberMe">Salvar meus dados neste computador</mat-checkbox>
+        </div>
+      </div>
+
+      <div *ngIf="step === 'upload'" class="upload-area">
+        <p class="config-summary">Conectado em: <strong>{{ jiraConfig.domain }}</strong></p>
+        <button mat-raised-button color="primary" (click)="fileInput.click()">Escolher Arquivo PDF</button>
+        <input hidden (change)="onFileSelected($event)" #fileInput type="file" accept=".pdf">
+        <p *ngIf="file" class="file-name">Arquivo: {{ file.name }}</p>
+      </div>
+
+      <div *ngIf="step === 'review'" class="review-list">
+        <p class="hint">Edite ou exclua tarefas antes de enviar.</p>
+        <div *ngFor="let task of draftTasks; let i = index" class="task-item">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Título</mat-label>
+            <input matInput [(ngModel)]="task.summary">
+          </mat-form-field>
+          <div class="row-actions">
+            <mat-form-field appearance="outline" class="desc-field">
+              <mat-label>Descrição</mat-label>
+              <textarea matInput [(ngModel)]="task.description" rows="2"></textarea>
+            </mat-form-field>
+            <button mat-icon-button color="warn" (click)="removeTask(i)"><mat-icon>delete</mat-icon></button>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="step === 'success'" class="success-area">
+        <mat-icon class="check-icon">check_circle</mat-icon>
+        <h3>Sucesso!</h3>
+        <p>Tarefas criadas no seu Jira corretamente.</p>
+      </div>
+
+      <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+      <p class="status-msg" *ngIf="statusMessage">{{ statusMessage }}</p>
+
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      
+      <button *ngIf="step === 'upload' || step === 'review'" 
+              mat-button color="warn" (click)="goBack()" 
+              [disabled]="isLoading" style="margin-right: auto;">
+        <mat-icon>arrow_back</mat-icon> VOLTAR
+      </button>
+
+      <button *ngIf="step === 'config'" mat-raised-button color="primary" 
+              (click)="goToUpload()" 
+              [disabled]="!jiraConfig.domain || !jiraConfig.email || !jiraConfig.token || !jiraConfig.projectKey">
+        PRÓXIMO
+      </button>
+
+      <button *ngIf="step === 'upload'" mat-raised-button color="primary" 
+              (click)="onAnalyze()" [disabled]="!file || isLoading">
+        ANALISAR PDF
+      </button>
+
+      <button *ngIf="step === 'review'" mat-raised-button color="accent" 
+              (click)="onConfirmToJira()" [disabled]="isLoading || draftTasks.length === 0">
+        CONFIRMAR ENVIO
+      </button>
+
+      <button *ngIf="step === 'success'" mat-stroked-button color="primary" (click)="reset()">
+        NOVO ARQUIVO
+      </button>
+
+    </mat-card-actions>
+  </mat-card>
+</div>

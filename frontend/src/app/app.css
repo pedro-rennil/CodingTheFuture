@@ -1,0 +1,257 @@
+/* RESET BÁSICO */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* BARRA DE TÍTULO */
+.main-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* O SEGREDO: height auto permite a barra crescer para caber o texto */
+  height: auto !important; 
+  min-height: 70px; /* Garante um tamanho mínimo */
+  padding: 10px 20px; /* Espaço interno (respiro) */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* ... no início do arquivo ... */
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto', sans-serif; /* Ou uma fonte mais quadrada se preferir */
+  letter-spacing: 1px;
+}
+
+.logo-clickable {
+  /* Removemos o cursor pointer daqui pois já está no container pai */
+  display: flex;
+  align-items: center;
+  user-select: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+  margin-bottom:-18px;
+}
+
+.logo-clickable:hover {
+  transform: scale(1.15); /* Aumenta o tamanho em 10% */
+}
+
+.logo-text {
+  font-weight: 700; /* Negrito */
+  font-size: 48px;
+  color: rgb(121, 73, 73); /* Cor do texto principal na toolbar azul */
+
+}
+
+.logo-ai {
+  font-weight: 300; /* Mais fino */
+  font-size: 48px;
+  color: #72a497; /* Um verde-água/ciano que contrasta bem com o azul */
+}
+
+.branding-container {
+  display: flex;
+  flex-direction: column; /* Empilha um em cima do outro */
+  justify-content: center;
+  align-items: flex-start; /* Alinha tudo à esquerda */
+  cursor: pointer;
+  line-height: 1.1; /* Diminui o espaço entre logo e texto */
+}
+
+.text-toolbar {
+  font-size: 18px;
+  color: rgba(45, 43, 43, 0.9);
+  margin-top: 4px;
+  margin-bottom: -15px;
+  font-weight: 400;
+  white-space: normal; /* Permite quebra de linha se necessário */
+  max-width: 500px; /* Impede que o texto estique demais */
+}
+
+/* CONTAINER PRINCIPAL */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px; /* Reduzido de 30px para 10px no topo */
+  background-color: #f5f5f5;
+  min-height: calc(100vh - 64px);
+  box-sizing: border-box;
+  justify-content: center; /* Tenta centralizar verticalmente se sobrar espaço */
+}
+
+/* CARTÃO */
+.upload-card {
+  width: 100%;
+  max-width: 700px;
+  margin-top: 20px;
+}
+
+/* STEPPER (Barra de Progresso Visual) */
+.stepper-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  color: #757575;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+.label {
+  font-size: 12px;
+  color: #9e9e9e;
+  font-weight: 500;
+}
+
+.step-item.active .circle {
+  background-color: #3f51b5;
+  color: white;
+  transform: scale(1.1);
+}
+
+.step-item.active .label {
+  color: #3f51b5;
+  font-weight: bold;
+}
+
+.line {
+  flex: 1;
+  height: 2px;
+  background-color: #e0e0e0;
+  margin: 0 10px;
+  margin-bottom: 20px;
+}
+
+/* FORMULÁRIOS */
+.config-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Reduzido drasticamente de 15px para 4px. Os campos ficam mais perto */
+  padding-top: 0;
+}
+
+.full-width {
+  width: 100%;
+  display: block; /* Garante que o campo ocupe a linha toda */
+}
+
+/* INFO BOX */
+.info-box {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+  padding: 8px 12px; /* Mais fino */
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px; /* Fonte levemente menor */
+  margin-bottom: 15px; /* Menos espaço abaixo dele */
+  margin-top: 15px;
+  line-height: 1.2;
+}
+
+/* OUTROS */
+.save-option {
+  margin-top: 5px; /* Bem colado no último campo */
+  margin-bottom: -30px;
+  display: flex;
+  align-items: center;
+}
+
+.token-link {
+  color: #3f51b5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.upload-area {
+  text-align: center;
+  border: 2px dashed #ccc;
+  padding: 40px;
+  border-radius: 8px;
+  background-color: #fafafa;
+  margin: 20px 0;
+}
+
+.config-summary {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.review-list {
+  max-height: 50vh;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.task-item {
+  border: 1px solid #eee;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  background: white;
+}
+
+.row-actions {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.desc-field {
+  flex-grow: 1;
+}
+
+.success-area {
+  text-align: center;
+  padding: 40px;
+}
+
+.check-icon {
+  font-size: 80px;
+  height: 80px;
+  width: 80px;
+  color: #4caf50;
+  margin-bottom: 15px;
+}
+
+mat-card-actions {
+  padding: 16px !important;
+  display: flex;
+  justify-content: flex-end; /* Botões alinhados à direita */
+}
