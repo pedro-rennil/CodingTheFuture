@@ -4,7 +4,6 @@ Automação Inteligente de Backlog com Integração JIRA
 
 Uma aplicação Full Stack que lê arquivos PDF de escopo de projeto, utiliza Inteligência Artificial para extrair tarefas técnicas e cria automaticamente um backlog no JIRA.
 
----
 
 ## 🚀 Demonstração Online
 
@@ -13,7 +12,7 @@ O projeto está implantado e rodando em produção:
 - Frontend (Interface): Acesse na Vercel (Link de exemplo)
 - Backend (API): Hospedado no Render
 
----
+
 
 ## 🛠️ Tecnologias e Ferramentas
 
@@ -39,7 +38,7 @@ A arquitetura foi desenhada priorizando escalabilidade, segurança e separação
 - Google Gemini AI: Processamento de linguagem natural.
 - JIRA REST API: Criação e autenticação de tarefas.
 
-  ---
+  
 
 ## 📋 Pré-Requisitos
 
@@ -107,45 +106,47 @@ npm install
 ```
 
 
-▶️ Como Rodar o Projeto
+## ▶️ Como Rodar o Projeto
 
 Você precisará de dois terminais abertos simultaneamente (um para o servidor e outro para o site).
 
-Terminal 1: Backend
+### Terminal 1: Backend
 
+```bash
 cd backend
 node server.js
+```
 
+✅ Aguarde a compilação. O terminal exibirá: "Servidor rodando na porta 3000"
 
-✅ O terminal exibirá: "Servidor rodando na porta 3000"
+### Terminal 2: Frontend
 
-Terminal 2: Frontend
-
+```bash
 cd frontend
 ng serve
-
+```
 
 ✅ Aguarde a compilação. O terminal exibirá: "Listening on http://localhost:4200/"
 
-🎮 Como Utilizar a Aplicação
+## 🎮 Como Utilizar a Aplicação
 
-Acesso: Abra seu navegador em http://localhost:4200 (ou no link da Vercel).
+1. Acesso: Abra seu navegador em http://localhost:4200 (ou no link da Vercel).
 
-Configuração:
+2. Configuração:
 
-Insira o Link do seu quadro JIRA.
+* Insira o Link do seu quadro JIRA.
 
-Insira seu E-mail.
+* Insira seu E-mail.
 
-Insira seu API Token (Gerado na Atlassian).
+* Insira seu API Token (Gerado na Atlassian).
 
-Dica: Marque "Salvar meus dados" para não digitar novamente.
+* Dica: Marque "Salvar meus dados" para não digitar novamente.
 
-Upload: Escolha um arquivo PDF contendo o escopo do projeto.
+3. Upload: Escolha um arquivo PDF contendo o escopo do projeto.
 
-Análise: O sistema lerá o arquivo e sugerirá tarefas.
+4. Análise: O sistema lerá o arquivo e sugerirá tarefas.
 
-Revisão: Edite os títulos, descrições ou exclua tarefas indesejadas na tela de revisão.
+5. Revisão: Edite os títulos, descrições ou exclua tarefas indesejadas na tela de revisão.
 
 Confirmação: Clique em "CONFIRMAR ENVIO".
 
