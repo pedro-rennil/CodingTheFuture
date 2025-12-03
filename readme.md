@@ -41,7 +41,7 @@ A arquitetura foi desenhada priorizando escalabilidade, segurança e separação
 
   ---
 
-📋 Preparando o Ambiente (Pré-Requisitos)
+## 📋 Pré-Requisitos
 
 Para rodar este projeto localmente, você precisa ter instalado no seu computador:
 
@@ -50,6 +50,7 @@ Para rodar este projeto localmente, você precisa ter instalado no seu computado
 * O motor que roda o JavaScript.
 
 * 📥 Baixar aqui
+
 
 2. **Angular CLI**
 
@@ -60,41 +61,50 @@ Para rodar este projeto localmente, você precisa ter instalado no seu computado
 npm install -g @angular/cli
 ```
 
+
 3. **Git**
 
 Para clonar o repositório.
 
-⚙️ Configuração e Instalação
+---
+
+## ⚙️ Configuração e Instalação
 
 Siga os passos abaixo para configurar o ambiente de desenvolvimento.
 
-1. Clonar o Repositório
-
+### 1. Clonar o Repositório
+```bash
 git clone [https://github.com/seu-usuario/staf-ai.git](https://github.com/seu-usuario/staf-ai.git)
 cd staf-ai
+```
 
 
-2. Configurar o Backend (Servidor)
+### 2. Configurar o Backend (Servidor)
 
 Entre na pasta do servidor e instale as dependências:
 
+```bash
 cd backend
 npm install
+```
 
 
-Variáveis de Ambiente (.env):
+### Variáveis de Ambiente (.env):
 Crie um arquivo chamado .env na raiz da pasta backend e adicione sua chave da IA (opcional se estiver usando Mock, mas recomendado):
 
+```bash
 PORT=3000
 GEMINI_API_KEY=Sua_Chave_Google_Aqui
+```
 
-
-3. Configurar o Frontend (Interface)
+### 3. Configurar o Frontend (Interface)
 
 Em um novo terminal, entre na pasta da interface e instale as dependências:
 
+```bash
 cd frontend
 npm install
+```
 
 
 ▶️ Como Rodar o Projeto
