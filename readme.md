@@ -36,7 +36,7 @@ No primeiro terminal, entre na pasta do servidor, instale as dependências e ini
 cd backend
 npm install
 node server.js
-'''
+```
 
 ### 2. Rodando o Frontend (Interface)
 No segundo terminal, entre na pasta da interface, instale as dependências e inicie:
@@ -45,7 +45,7 @@ No segundo terminal, entre na pasta da interface, instale as dependências e ini
 cd frontend
 npm install
 ng serve
-'''
+```
 
 ✅ Aguarde a compilação. O terminal exibirá: "Listening on http://localhost:4200/"
 
