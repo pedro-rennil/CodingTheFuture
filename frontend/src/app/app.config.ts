@@ -1,14 +1,16 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient } from '@angular/common/http'; // Importante para conectar no Back-end
+// MUDANÇA AQUI: Trocamos 'animations/async' por apenas 'animations'
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes), 
-    provideAnimationsAsync(),
-    provideHttpClient() // Adicionamos isso aqui
+    // MUDANÇA AQUI: Usamos a função padrão, que é mais estável para deploy
+    provideAnimations(),
+    provideHttpClient()
   ]
 };
