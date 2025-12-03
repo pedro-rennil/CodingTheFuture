@@ -97,7 +97,7 @@ export class App {
     const formData = new FormData();
     formData.append('pdf', this.file);
 
-    this.http.post<any[]>('http://localhost:3000/analyze', formData).subscribe({
+    this.http.post<any[]>('https://staf-ai-backend.onrender.com/analyze', formData).subscribe({
       next: (response) => {
         this.isLoading = false;
         this.draftTasks = response;
@@ -146,7 +146,7 @@ export class App {
       config: this.jiraConfig
     };
 
-    this.http.post<any>('http://localhost:3000/create-issues', payload).subscribe({
+    this.http.post<any>('https://staf-ai-backend.onrender.com/create-issues', payload).subscribe({
       next: (response) => {
         this.isLoading = false;
         this.step = 'success';
