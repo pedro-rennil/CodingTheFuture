@@ -130,9 +130,9 @@ ng serve
 
 ## 🎮 Como Utilizar a Aplicação
 
-1. Acesso: Abra seu navegador em http://localhost:4200 (ou no link da Vercel).
+1. **Acesso**: Abra seu navegador em http://localhost:4200 (ou no link da Vercel).
 
-2. Configuração:
+2. **Configuração**:
 
 * Insira o Link do seu quadro JIRA.
 
@@ -142,14 +142,23 @@ ng serve
 
 * Dica: Marque "Salvar meus dados" para não digitar novamente.
 
-3. Upload: Escolha um arquivo PDF contendo o escopo do projeto.
+3. **Upload**: Escolha um arquivo PDF contendo o escopo do projeto.
 
-4. Análise: O sistema lerá o arquivo e sugerirá tarefas.
+4. **Análise**: O sistema lerá o arquivo e sugerirá tarefas.
 
-5. Revisão: Edite os títulos, descrições ou exclua tarefas indesejadas na tela de revisão.
+5. **Revisão**: Edite os títulos, descrições ou exclua tarefas indesejadas na tela de revisão.
 
-Confirmação: Clique em "CONFIRMAR ENVIO".
+6. **Confirmação**: Clique em "CONFIRMAR ENVIO".
 
-Sucesso: As tarefas aparecerão magicamente no seu quadro do JIRA!
+7. **Sucesso**: As tarefas aparecerão magicamente no seu quadro do JIRA!
 
-Desenvolvido como MVP para o desafio Coding The Future.
+---
+
+Desenvolvido como MVP para o desafio da Residência Tecnológica do Porto Digital em parceria com a empresa Stefanini.
+Integrantes da Equipe: 
+Deyvison Conrado
+Rhaldney Robert
+Albean Santiago
+Janderson Ferreira
+Pedro Rennil
+Joyce Cristine
