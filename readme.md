@@ -18,25 +18,18 @@ A arquitetura foi desenhada priorizando escalabilidade, segurança e separação
 
 **Front-end**
 
-Angular 18+: Framework principal (Standalone Components).
-
-Angular Material: Design System para componentes visuais (Stepper, Cards, Inputs).
-
-TypeScript: Lógica de componentes e serviços.
-
-Vercel: Plataforma de hospedagem e CI/CD do Frontend.
+- Angular 18+: Framework principal (Standalone Components).
+- Angular Material: Design System para componentes visuais (Stepper, Cards, Inputs).
+- TypeScript: Lógica de componentes e serviços.
+- Vercel: Plataforma de hospedagem e CI/CD do Frontend.
 
 **Back-end**
 
-Node.js: Ambiente de execução.
-
-Express: Framework de API REST.
-
-Multer: Processamento de upload de arquivos.
-
-PDF-Parse: Extração de texto de arquivos binários.
-
-Render: Plataforma de hospedagem do Backend (Container).
+- Node.js: Ambiente de execução.
+- Express: Framework de API REST.
+- Multer: Processamento de upload de arquivos.
+- PDF-Parse: Extração de texto de arquivos binários.
+- Render: Plataforma de hospedagem do Backend (Container).
 
 Integrações
 
